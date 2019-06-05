@@ -27,6 +27,10 @@ class App extends React.Component {
   };
 
 
+// looping over todos
+// finding todo by given id
+// changing flag to true
+// returning updated list to state.
 toggleTodo = id => {
   this.setState({
    Todos: this.state.Todos.map(todo => {
@@ -42,26 +46,31 @@ toggleTodo = id => {
     return todo;
    })
  });
-    // loop over todos
-    // find todo by given id
-    // change flag to true
-    // return updated list to state.
 }
 
 
 
 addTodo = todo => {
-  const copiedTodos = this.state.Todos.slice();
   const newTodo = {
     task: todo,
     id: Date.now(),
     completed: false
   };
-  copiedTodos.push(newTodo);
-  // BUILD OUR TODO OBJECT
-  this.setState({ Todos: copiedTodos });
+
+  this.setState({ 
+    Todos: [...this.state.Todos, newTodo]
+  });
 };
 
+  
+clearCompleted = () => {
+  // use filter
+  // looping over all the todos inside of `this.state.Todos`
+  // filter out any items, who's todo.completed === true
+  const completedTodos = this.state.Todos.filter(todo => todo.completed === false)
+  // set your state with your new filtered list.
+  this.setState({ Todos: completedTodos });
+};
 
   render() { 
     return (
@@ -71,7 +80,13 @@ addTodo = todo => {
          todos={this.state.Todos}
          toggleTodo={this.toggleTodo}
         />
-         <TodoForm addTodo={this.addTodo} />
+        <div className="form">
+          <TodoForm 
+          addTodo={this.addTodo} 
+          clearCompleted={this.clearCompleted}
+          />
+           <button onClick={this.clearCompleted}>Clear Completed</button>
+        </div>
       </div>
     );
   }

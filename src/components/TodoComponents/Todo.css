@@ -9,3 +9,7 @@ button {
   color: yellowgreen;
   text-decoration: line-through;
 } 
+
+.form {
+  display: flex;
+}

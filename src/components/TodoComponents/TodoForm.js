@@ -8,19 +8,21 @@ class TodoForm extends React.Component {
     };
   }
 
-  handleChanges = (e) => {
-   this.setState({ [e.target.name]: e.target.value });
+  
+  handleChanges = (event) => {
+   this.setState({ [event.target.name]: event.target.value });
   }
 
+ 
   submitTodo = (e) => {
     e.preventDefault();
      // take the todo off of state
      // send that todo to a function defined on App.js
      this.props.addTodo(this.state.todo)
      // reset the state
-     this.setState({ item: ''});
+     //this.setState({ item: ''});
   }
-  
+
 
   render() {
     return (
@@ -30,9 +32,10 @@ class TodoForm extends React.Component {
          name='todo'
          value={this.state.task}
          onChange={this.handleChanges}
+         placeholder='...todo'
         />
         <button type='submit'>Add ToDo</button>
-        <button>Clear Completed</button>
+      
       </form>
     );
   };
