@@ -1,10 +1,10 @@
 import React from 'react';
 
 class TodoForm extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      todo: ''
+  constructor(props) {
+    super(props);
+      this.state = {
+        todo: ""
     };
   }
 
@@ -18,9 +18,11 @@ class TodoForm extends React.Component {
     e.preventDefault();
      // take the todo off of state
      // send that todo to a function defined on App.js
-     this.props.addTodo(this.state.todo)
+     console.log('TodoForm Props: ', this.props.addTodo)
+     console.log(this.state.todo)
+     this.props.addTodo(this.state.todo);
      // reset the state
-     //this.setState({ item: ''});
+     this.setState({ todo: "" });
   }
 
 
@@ -30,12 +32,12 @@ class TodoForm extends React.Component {
        <input
          type='text'
          name='todo'
-         value={this.state.task}
+         value={this.state.todo}
          onChange={this.handleChanges}
          placeholder='...todo'
         />
         <button type='submit'>Add ToDo</button>
-      
+        <button onClick={this.props.clearCompleted}>Clear Completed</button>
       </form>
     );
   };

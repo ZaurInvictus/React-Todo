@@ -54,7 +54,7 @@ addTodo = todo => {
   const newTodo = {
     task: todo,
     id: Date.now(),
-    completed: false
+    completed: false,
   };
 
   this.setState({ 
@@ -67,25 +67,24 @@ clearCompleted = () => {
   // use filter
   // looping over all the todos inside of `this.state.Todos`
   // filter out any items, who's todo.completed === true
-  const completedTodos = this.state.Todos.filter(todo => todo.completed === false)
+  const completedTodos = this.state.Todos.filter(todo => !todo.completed)
   // set your state with your new filtered list.
   this.setState({ Todos: completedTodos });
 };
 
   render() { 
     return (
-      <div className="app">
+      <div className="App">
         <h2>Welcome to your Todo App!</h2>
         <TodoList 
-         todos={this.state.Todos}
-         toggleTodo={this.toggleTodo}
+          todos={this.state.Todos}
+          toggleTodo={this.toggleTodo}
         />
         <div className="form">
           <TodoForm 
-          addTodo={this.addTodo} 
-          clearCompleted={this.clearCompleted}
+            addTodo={this.addTodo} 
+            clearCompleted={this.clearCompleted}
           />
-           <button onClick={this.clearCompleted}>Clear Completed</button>
         </div>
       </div>
     );
