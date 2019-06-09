@@ -1,0 +1,58 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #2d2d37;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+ /* font-family: sans-serif */
+  text-align: center; 
+  max-width: 650px;
+  width: 40%;
+  margin: 3px auto;
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+
+button {
+  background-color: #fff;
+}
+
+.todo.completed {
+  color: tomato;
+  text-decoration: line-through;
+} 
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+input, button {
+  margin: 3px;
+}
+
